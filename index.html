@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#090d16">
+  <meta name="description" content="EVA — your private, local-first personal assistant.">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icons/eva.svg" type="image/svg+xml">
+  <title>EVA · Enhanced Virtual Assistant</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">E</div>
+        <div><div class="brand-name">EVA</div><div class="brand-sub">ENHANCED VIRTUAL ASSISTANT</div></div>
+      </div>
+      <button class="icon-button" id="newChat" aria-label="New conversation" title="New conversation">＋</button>
+    </header>
+
+    <main>
+      <section id="chatPanel" class="panel active">
+        <div class="hero">
+          <div class="eyebrow"><span class="pulse"></span> PRIVATE SESSION</div>
+          <h1>Good to see you.</h1>
+          <p>I'm EVA. Warm, sharp-minded, and ready to help. Your conversations stay in this browser on this device.</p>
+          <div class="status-row"><span class="status-dot"></span><span id="engineStatus">Local storage ready · AI engine not connected</span></div>
+        </div>
+        <div id="messages" class="messages" aria-live="polite"></div>
+        <div class="composer-wrap">
+          <textarea id="messageInput" rows="1" placeholder="Message EVA…" aria-label="Message EVA"></textarea>
+          <button id="sendButton" class="send-button" aria-label="Send message">↑</button>
+        </div>
+        <p class="microcopy">Starter build: saves chats locally. It does not yet run a language model.</p>
+      </section>
+
+      <section id="memoryPanel" class="panel">
+        <div class="section-heading"><div class="eyebrow">YOUR PRIVATE SPACE</div><h2>Memory & notes</h2><p>Save notes you want EVA to use later. Stored in this browser's local database.</p></div>
+        <label class="field-label" for="memoryInput">Personal notes</label>
+        <textarea id="memoryInput" class="memory-input" placeholder="Add preferences, project context, or facts you want to keep…"></textarea>
+        <button id="saveMemory" class="primary-button">Save notes on this device</button>
+        <p id="memoryStatus" class="small-status">Nothing is uploaded by this starter app.</p>
+      </section>
+
+      <section id="settingsPanel" class="panel">
+        <div class="section-heading"><div class="eyebrow">CONTROL CENTER</div><h2>Settings</h2><p>Keep EVA configured around your privacy preferences.</p></div>
+        <div class="setting-card">
+          <div><strong>On-device AI</strong><p id="gpuStatus">Checking browser GPU support…</p></div>
+          <span class="pill" id="gpuPill">Checking</span>
+        </div>
+        <div class="setting-card">
+          <div><strong>Personality</strong><p>Mature, affectionate, nurturing, witty and capable. Professional when the task calls for it.</p></div>
+          <span class="pill">EVA</span>
+        </div>
+        <div class="setting-card">
+          <div><strong>Network policy</strong><p>This starter contains no analytics, backend, remote AI API, or outbound fetch calls.</p></div>
+          <span class="pill green">Local-first</span>
+        </div>
+        <div class="setting-card">
+          <div><strong>Export your data</strong><p>Download conversations and notes as a JSON file.</p></div>
+          <button id="exportData" class="secondary-button">Export</button>
+        </div>
+        <div class="setting-card danger-card">
+          <div><strong>Delete local data</strong><p>Remove conversations and notes stored by EVA in this browser.</p></div>
+          <button id="deleteData" class="danger-button">Delete</button>
+        </div>
+        <div class="notice"><strong>Honest status:</strong> the AI inference engine is not included yet. The app will not pretend to answer as a model until a tested local runtime is connected.</div>
+      </section>
+    </main>
+
+    <nav class="tabbar" aria-label="Main navigation">
+      <button class="tab active" data-panel="chatPanel"><span>◉</span>Chat</button>
+      <button class="tab" data-panel="memoryPanel"><span>◇</span>Memory</button>
+      <button class="tab" data-panel="settingsPanel"><span>⚙</span>Settings</button>
+    </nav>
+  </div>
+  <script src="./app.js"></script>
+</body>
+</html>

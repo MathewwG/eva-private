@@ -1,0 +1,13 @@
+{
+  "name": "EVA — Enhanced Virtual Assistant",
+  "short_name": "EVA",
+  "description": "Your private, local-first personal assistant.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#090d16",
+  "theme_color": "#090d16",
+  "icons": [
+    {"src":"./icons/eva.svg","sizes":"any","type":"image/svg+xml","purpose":"any"}
+  ]
+}
